@@ -1,0 +1,59 @@
+body { padding-top: 10px}
+
+.home {
+    background-image: url("../landing.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sign-up-cta {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em;
+    margin-left: -15em;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
+
+#view-div {
+    margin-top: 50px;
+}
+
+.home {
+    background-image: url("../landing.jpg");
+}
+
+.panel-heading {
+    background-color: #398439 !important;
+}
+
+fieldset {
+    margin-bottom: 10px;
+}
+
+.field-group {
+    border: solid slategrey 1px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.btn-register {
+    width: 100%;
+}
+
+#area-code {
+    display: inline-block;
+    width: 10%;
+    padding-right: 5px
+}
+
+#contact, #course, #educationPeriod, #employmentPeriod{
+    display: inline-block;
+    width: auto;
+    padding-right: 5px
+}

@@ -1,0 +1,111 @@
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">{{header}}</div>
+        <div class="alert alert-success" ng-if="successAlert">
+            <strong>User registered Successfully</strong>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="userForm" ng-submit="register(userForm.$valid)" novalidate>
+                <fieldset>
+                    <legend>Personal Details</legend>
+                    <div class="form-group" ng-class="{'has-error': userForm.name.$invalid && submitted}">
+                        <label class="control-label col-md-2" for="name">Name *</label>
+                        <div class="col-md-10">
+                            <input type="text" name="name" id="name" class="form-control" ng-model="user.name" required>
+                        </div>
+                        <p ng-show="userForm.name.$invalid && submitted" class="help-block">Name is required.</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': userForm.email.$invalid && submitted}">
+                        <label class="control-label col-md-2" for="email">Email *</label>
+                        <div class="col-md-10">
+                            <input type="email" name="email" id="email" class="form-control" ng-model="user.email" required>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': userForm.contact.$invalid && submitted}">
+                        <label class="control-label col-md-2" for="contact">Contact No.</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="area-code" placeholder="+91" readonly>
+                            <input type="text" name="contact" id="contact" class="form-control" ng-model="user.contact" ng-pattern="/^\d{10}$/" required>
+                        </div>
+                        <p ng-show="userForm.contact.$invalid && submitted" class="help-block">Please enter valid Contact no. </p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Educational Details</legend>
+                    <div class="field-group">
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="course">Course</label>
+                            <div class="col-md-10">
+                                <input type="text" name="course" id="course" class="form-control" ng-model="user.education.course">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="institue">Institute Name</label>
+                            <div class="col-md-10">
+                                <select name="institute" id="institute" class="form-control" ng-model="user.education.institute">
+                                    <option ng-repeat="option in instituteOptions" value="{{option.value}}">{{option.value}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="instituteCity">City</label>
+                            <div class="col-md-10">
+                                <select name="instituteCity" id="instituteCity" class="form-control" ng-model="user.education.city">
+                                    <option ng-repeat="option in cities" value="{{option.value}}">{{option.value}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="educationPeriod">Period</label>
+                            <div class="col-md-10">
+                                <input type="date" name="startDate" id="educationPeriod" class="form-control" ng-model="user.education.startDate">
+                                <strong> to</strong>
+                                <input type="date" name="endDate" id="educationPeriod" class="form-control" ng-model="user.education.endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="button" value="Add Education">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Employment Details</legend>
+                    <div class="field-group">
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="company">Company</label>
+                            <div class="col-md-10">
+                                <input type="text" name="company" class="form-control" ng-model="user.employment.company">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="title">Title</label>
+                            <div class="col-md-10">
+                                <input type="text" name="title" class="form-control" ng-model="user.employment.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="companyCity">City</label>
+                            <div class="col-md-10">
+                                <select name="companyCity" id="companyCity" class="form-control" ng-model="user.employment.city">
+                                    <option ng-repeat="option in cities" value="{{option.value}}">{{option.value}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="employmentPeriod">Period</label>
+                            <div class="col-md-10">
+                                <input type="date" name="startDate" id="employmentPeriod" class="form-control" ng-model="user.employment.startDate">
+                                <strong> to</strong>
+                                <input type="date" name="endDate" id="employmentPeriod" class="form-control" ng-model="user.employment.endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="button" value="Add more" ng-click="addEmployment()">
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-success btn-register">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
